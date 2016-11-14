@@ -2,6 +2,8 @@ package com.example.alok;
 
 
 import org.apache.commons.io.output.ByteArrayOutputStream;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ImageBanner;
@@ -32,6 +34,9 @@ public class FileIntegrationApplication {
 
     @Configuration
     public  static class FtpConfig {
+
+        private static  final Logger logger = LoggerFactory.getLogger(FtpConfig.class);
+
         @Bean
         DefaultFtpSessionFactory defaultftpSessionFactory(
                 @Value("${ftp.port:21}") int port,
